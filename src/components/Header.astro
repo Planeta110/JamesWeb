@@ -1,0 +1,128 @@
+---
+import src from "/public/imgs/image.jpg";
+---
+
+<dialog id="modal">
+  <h1>¡Aviso sobre esta Web!</h1>
+  <p>
+    Los textos pueden ser falsos o incorrectos, desactualizados ya que han sido
+    generado con la IA.
+    
+  </p>
+  <button class="close">Cerrar</button>
+</dialog>
+
+<div class="header">
+  <img src={src.src} alt="Descripción de la imagen" />
+  <a class="inicioa" href="/">Inicio</a>
+  <a class="lugara" href="/">Lugar</a>
+  <a class="fechaadelanzamiento" href="/">Fecha de lanzamiento</a>
+  <button class="avisodeweb">Aviso sobre esta Web</button>
+</div>
+
+<style>
+  .close {
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(121, 212, 237);
+  }
+  .avisodeweb {
+    font-size: 15px;
+    border-radius: 10px;
+    width: 200px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #cfcfcf;
+    color: red;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 1320px;
+  }
+
+  .fechaadelanzamiento {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 240px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+  }
+  .lugara {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 140px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+  }
+  .inicioa {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 40px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+  }
+  #modal::backdrop {
+    background-color: rgb(255, 255, 255);
+  }
+  #modal {
+    z-index: 10000;
+    margin-top: 200px;
+  }
+  img {
+    margin-top: 10px;
+    margin-left: 20px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .header {
+    margin-left: -8px;
+    margin-top: -8px;
+    position: fixed;
+    width: 100%;
+    background-color: #939393;
+    height: 70px;
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll("button.avisodeweb");
+  const buttonsclose = document.querySelectorAll("button.close");
+  let modalis = 0;
+
+  // Maneja los clics en cada botón.
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const modal = document.getElementById("modal");
+      if (modalis === 0) {
+        modal.style.display = "block";
+        modalis += 1;
+      } else if (modalis === 1) {
+        modal.style.display = "none";
+        modalis = 0;
+      }
+    });
+  });
+
+  buttonsclose.forEach((button) => {
+    button.addEventListener("click", () => {
+      const modal = document.getElementById("modal");
+      if (modalis === 0) {
+        modal.style.display = "block";
+        modalis += 1;
+      } else if (modalis === 1) {
+        modal.style.display = "none";
+        modalis = 0;
+      }
+    });
+  });
+</script>
